@@ -16,7 +16,6 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.util.AttributeSet
-import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
@@ -339,16 +338,6 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
                         view.alpha = 0.3f
                     } else {
                         view.setOnClickListener { v -> onItemClicked(v, mAdapter.getItem(i)) }
-                        val parent = view.getParent() as View?
-                        parent?.post {
-                            val r = Rect()
-                            view.getHitRect(r)
-                            r.top -= context.dipToPixels(20).toInt()
-                            r.bottom += context.dipToPixels(20).toInt()
-                            r.left -= context.dipToPixels(20).toInt()
-                            r.right += context.dipToPixels(20).toInt()
-                            parent.touchDelegate = TouchDelegate(r, view)
-                        }
                     }
                 }
                 rowCurrent.addView(view)
