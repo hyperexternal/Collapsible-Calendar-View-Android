@@ -5,11 +5,6 @@ package com.hyperexternal.collapsiblecalendarview.widget
  */
 
 
-import android.animation.Animator
-import android.animation.Animator.AnimatorListener
-import android.animation.AnimatorSet
-import android.animation.ObjectAnimator
-import android.animation.TimeInterpolator
 import android.content.Context
 import android.graphics.Color
 import android.graphics.Rect
@@ -20,25 +15,18 @@ import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
-import android.view.animation.AnimationSet
 import android.view.animation.Transformation
-import android.widget.LinearLayout
-import android.widget.TableLayout
-import android.widget.TableRow
-import android.widget.TextView
+import android.widget.*
+import com.hyperexternal.collapsiblecalendarview.R
 import com.hyperexternal.collapsiblecalendarview.data.CalendarAdapter
 import com.hyperexternal.collapsiblecalendarview.data.Day
 import com.hyperexternal.collapsiblecalendarview.data.Event
 import com.hyperexternal.collapsiblecalendarview.dipToPixels
 import com.hyperexternal.collapsiblecalendarview.view.ExpandIconView
-import com.hyperexternal.collapsiblecalendarview.widget.UICalendar.Companion.STATE_COLLAPSED
-import com.hyperexternal.collapsiblecalendarview.widget.UICalendar.Companion.STATE_EXPANDED
-import com.hyperexternal.collapsiblecalendarview.widget.UICalendar.Companion.STATE_PROCESSING
 import java.lang.Math.abs
 import java.text.DateFormatSymbols
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 open class CollapsibleCalendar : UICalendar, View.OnClickListener {
@@ -334,9 +322,12 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
                         1f)
                 view.tag = i % 7
                 params.let { params ->
+                    // Give the right UI for those days which should be unavailable
                     if (params != null && (mAdapter.getItem(i).diff < params.prevDays || mAdapter.getItem(i).diff > params.nextDaysBlocked)) {
                         view.isClickable = false
                         view.alpha = 0.3f
+                        val imgEventTag = view.findViewById(R.id.img_event_tag) as ImageView
+                        imgEventTag.visibility = View.INVISIBLE
                     } else {
                         view.setOnClickListener { v -> onItemClicked(v, mAdapter.getItem(i)) }
                         val parent = view.getParent() as View?
