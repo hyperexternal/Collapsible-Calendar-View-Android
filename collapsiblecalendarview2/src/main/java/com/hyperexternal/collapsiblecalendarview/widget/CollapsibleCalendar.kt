@@ -397,15 +397,22 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
         reload()
     }
 
-    fun addAllEvent(eventList: List<Event>) {
-        mAdapter!!.mEventList = eventList.toMutableSet()
-        reload()
-    }
-
     fun addEventTag(numYear: Int, numMonth: Int, numDay: Int, color: Int) {
         mAdapter!!.addEvent(Event(numYear, numMonth, numDay, color))
 
+        reload()
+    }
 
+    fun addEventTagFromList(eventList: List<Event>) {
+        for (event in eventList) {
+            mAdapter!!.addEvent(Event(event.year, event.month, event.day, eventColor))
+        }
+
+        reload()
+    }
+
+    fun addAllEvent(eventList: List<Event>) {
+        mAdapter!!.mEventList = eventList.toMutableSet()
         reload()
     }
 
