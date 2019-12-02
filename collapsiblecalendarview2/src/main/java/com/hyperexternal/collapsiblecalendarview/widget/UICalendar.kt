@@ -72,7 +72,7 @@ abstract class UICalendar constructor(context: Context, attrs: AttributeSet? = n
             field = value
             hideButton()
         }
-    open var state = STATE_COLLAPSED
+    open var state = STATE_EXPANDED
         set(state) {
             field = state
 

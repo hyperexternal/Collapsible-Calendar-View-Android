@@ -63,7 +63,7 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
     private var mAdapter: CalendarAdapter? = null
     private var mListener: CalendarListener? = null
 
-    var expanded = false
+    var expanded = true
 
     private var mInitHeight = 0
 
@@ -197,7 +197,7 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
 
         filterFrameLayout.setOnClickListener { filterClicked() }
 
-        expandIconView.setState(ExpandIconView.MORE, true)
+        expandIconView.setState(ExpandIconView.LESS, false)
 
 
         expandIconView.setOnClickListener {
@@ -221,13 +221,13 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
 
         mInitHeight = mTableBody.measuredHeight
 
-        if (mIsWaitingForUpdate) {
-            mHandler.post { collapseTo(mCurrentWeekIndex) }
-            mIsWaitingForUpdate = false
-            if (mListener != null) {
-                mListener!!.onDataUpdate()
-            }
-        }
+//        if (mIsWaitingForUpdate) {
+//            mHandler.post { collapseTo(mCurrentWeekIndex) }
+//            mIsWaitingForUpdate = false
+//            if (mListener != null) {
+//                mListener!!.onDataUpdate()
+//            }
+//        }
     }
 
     override fun redraw() {
@@ -346,7 +346,7 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
             }
 
             redraw()
-            mIsWaitingForUpdate = true
+//            mIsWaitingForUpdate = true
             params?.onReload?.invoke()
         }
     }
