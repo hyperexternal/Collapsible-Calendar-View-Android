@@ -69,7 +69,7 @@
         <LinearLayout
             android:id="@+id/expand_collapse"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -110,8 +110,8 @@
             android:background="?attr/selectableItemBackground"
             android:contentDescription="@string/content_description_rl_options_button"
             android:gravity="center"
-            android:paddingStart="12dp"
-            android:paddingEnd="8dp"
+            android:paddingStart="13dp"
+            android:paddingEnd="13dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -135,8 +135,8 @@
             android:layout_centerHorizontal="true"
             android:background="?attr/selectableItemBackground"
             android:gravity="center"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
+            android:paddingStart="13dp"
+            android:paddingEnd="13dp"
             app:layout_constraintEnd_toStartOf="@id/frame_filter_icon">
 
             <ImageView
