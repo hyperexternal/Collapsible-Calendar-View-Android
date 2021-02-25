@@ -92,6 +92,7 @@
                 android:id="@+id/expandIcon"
                 android:layout_width="16dp"
                 android:layout_height="30dp"
+                android:contentDescription="@string/content_description_eiv_arrow"
                 android:visibility="visible"
                 app:eiv_animationDuration="300"
                 app:eiv_color="#000"
@@ -107,13 +108,14 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/content_description_rl_options_button"
             android:gravity="center"
+            android:paddingStart="12dp"
+            android:paddingEnd="8dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:paddingEnd="8dp"
-            android:paddingStart="12dp"
             tools:visibility="visible">
 
             <ImageView
@@ -129,6 +131,7 @@
             android:id="@+id/frame_today_icon"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:contentDescription="@string/content_description_rl_today_button"
             android:layout_centerHorizontal="true"
             android:background="?attr/selectableItemBackground"
             android:gravity="center"
