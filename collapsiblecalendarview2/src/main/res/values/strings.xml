@@ -8,8 +8,8 @@
     <string name="friday">FRI</string>
     <string name="saturday">SAT</string>
     <string name="sunday">SUN</string>
-    <string name="content_description_ll_calendar_expand">expand calendar</string>
-    <string name="content_description_ll_calendar_collapse">collapse calendar</string>
+    <string name="content_description_ll_calendar_expand">Expand calendar</string>
+    <string name="content_description_ll_calendar_collapse">Collapse calendar</string>
     <string name="content_description_rl_options_button">Options menu button</string>
     <string name="content_description_rl_today_button">Select today button</string>
 </resources>
