@@ -201,8 +201,10 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
 
         expandIconView.setOnClickListener {
             if (expanded) {
+                linearExpandCollapse.contentDescription = context.getString(R.string.content_description_ll_calendar_expand)
                 collapse(400)
             } else {
+                linearExpandCollapse.contentDescription = context.getString(R.string.content_description_ll_calendar_collapse)
                 expand(400)
             }
         }
