@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
-    tools:paddingStart="16dp"
-    tools:paddingEnd="16dp"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:paddingEnd="16dp"
+    tools:paddingStart="16dp">
 
     <RelativeLayout
         android:id="@+id/layout_btn_group_week"
@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_margin="2dp"
+            android:contentDescription="@string/content_description_iv_previous_week_button"
             app:srcCompat="@drawable/left_icon" />
 
         <ImageView
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_margin="2dp"
+            android:contentDescription="@string/content_description_iv_next_week_button"
             app:srcCompat="@drawable/right_icon" />
     </RelativeLayout>
 
@@ -41,11 +43,11 @@
 
         <ImageView
             android:id="@+id/btn_prev_month"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_margin="2dp"
+            android:contentDescription="@string/content_description_iv_previous_month_button"
             app:srcCompat="@drawable/left_icon" />
 
         <ImageView
@@ -55,6 +57,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_margin="2dp"
+            android:contentDescription="@string/content_description_iv_next_month_button"
             app:srcCompat="@drawable/right_icon" />
 
     </RelativeLayout>
@@ -71,7 +74,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/content_description_ll_calendar_expand"
             android:gravity="center_vertical"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/frame_today_icon"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,19 +112,20 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/content_description_rl_options_button"
             android:gravity="center"
+            android:minWidth="48dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:paddingEnd="8dp"
-            android:paddingStart="12dp"
             tools:visibility="visible">
 
             <ImageView
                 android:id="@+id/filter_icon"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:contentDescription="@null"
                 android:gravity="center"
                 android:src="@drawable/options" />
 
@@ -131,29 +137,33 @@
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/content_description_rl_today_button"
             android:gravity="center"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
+            android:minWidth="48dp"
             app:layout_constraintEnd_toStartOf="@id/frame_filter_icon">
 
             <ImageView
                 android:id="@+id/today_icon"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
+                android:contentDescription="@null"
                 android:gravity="center_horizontal"
                 android:src="@drawable/today" />
 
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.hyperexternal.collapsiblecalendarview.view.BounceScrollView
         android:id="@+id/bounce_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TableLayout
                 android:id="@+id/table_head"
                 android:layout_width="match_parent"
@@ -162,6 +172,7 @@
                 android:paddingBottom="30dp">
 
             </TableLayout>
+
             <com.hyperexternal.collapsiblecalendarview.view.LockScrollView
                 android:id="@+id/scroll_view_body"
                 android:layout_width="match_parent"
@@ -172,8 +183,8 @@
                     android:id="@+id/table_body"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:orientation="horizontal"
-                    android:isScrollContainer="true">
+                    android:isScrollContainer="true"
+                    android:orientation="horizontal">
 
                 </TableLayout>
 

@@ -11,7 +11,6 @@ import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.util.AttributeSet
-import android.view.TouchDelegate
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
@@ -202,8 +201,10 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
 
         expandIconView.setOnClickListener {
             if (expanded) {
+                linearExpandCollapse.contentDescription = context.getString(R.string.content_description_ll_calendar_expand)
                 collapse(400)
             } else {
+                linearExpandCollapse.contentDescription = context.getString(R.string.content_description_ll_calendar_collapse)
                 expand(400)
             }
         }
@@ -330,16 +331,6 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
                         imgEventTag.visibility = View.INVISIBLE
                     } else {
                         view.setOnClickListener { v -> onItemClicked(v, mAdapter.getItem(i)) }
-                        val parent = view.getParent() as View?
-                        parent?.post {
-                            val r = Rect()
-                            view.getHitRect(r)
-                            r.top -= context.dipToPixels(20).toInt()
-                            r.bottom += context.dipToPixels(20).toInt()
-                            r.left -= context.dipToPixels(20).toInt()
-                            r.right += context.dipToPixels(20).toInt()
-                            parent.touchDelegate = TouchDelegate(r, view)
-                        }
                     }
                 }
                 rowCurrent.addView(view)

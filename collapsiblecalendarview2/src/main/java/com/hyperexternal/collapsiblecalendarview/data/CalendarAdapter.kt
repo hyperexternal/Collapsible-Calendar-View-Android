@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.Rect
 import android.view.LayoutInflater
-import android.view.TouchDelegate
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -126,16 +125,6 @@ class CalendarAdapter(val context: Context, cal: Calendar) {
 
             val view = mInflater.inflate(R.layout.day_layout, null)
             val txtDay = view.findViewById<View>(R.id.txt_day) as TextView
-            val parent = txtDay.getParent() as View?
-            parent?.post {
-                val r = Rect()
-                txtDay.getHitRect(r)
-                r.top -= context.dipToPixels(20).toInt()
-                r.bottom += context.dipToPixels(20).toInt()
-                r.left -= context.dipToPixels(20).toInt()
-                r.right += context.dipToPixels(20).toInt()
-                parent.touchDelegate = TouchDelegate(r, txtDay)
-            }
             val imgEventTag = view.findViewById<View>(R.id.img_event_tag) as ImageView
             params?.let {
                 imgEventTag.setImageDrawable(CircleDrawable(context).setParams(CircleDrawable.Params(it.color, it.size)).getCircle())
