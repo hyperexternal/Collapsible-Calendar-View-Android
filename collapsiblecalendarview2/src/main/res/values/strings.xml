@@ -16,4 +16,11 @@
     <string name="content_description_iv_next_week_button">Next week button</string>
     <string name="content_description_iv_previous_month_button">Previous month button</string>
     <string name="content_description_iv_next_month_button">Next month button</string>
+    <string name="content_description_monday">Monday</string>
+    <string name="content_description_tuesday">Tuesday</string>
+    <string name="content_description_wednesday">Wednesday</string>
+    <string name="content_description_thursday">Thursday</string>
+    <string name="content_description_friday">Friday</string>
+    <string name="content_description_saturday">Saturday</string>
+    <string name="content_description_sunday">Sunday</string>
 </resources>

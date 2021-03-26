@@ -293,6 +293,7 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
                 val view = mInflater.inflate(com.hyperexternal.collapsiblecalendarview.R.layout.layout_day_of_week, null)
                 val txtDayOfWeek = view.findViewById<View>(com.hyperexternal.collapsiblecalendarview.R.id.txt_day_of_week) as TextView
                 txtDayOfWeek.setText(DateFormatSymbols().getShortWeekdays()[(i + firstDayOfWeek) % 7 + 1])
+                setDayOfWeekContentDescription(txtDayOfWeek, i)
                 view.layoutParams = TableRow.LayoutParams(
                         0,
                         ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -339,6 +340,32 @@ open class CollapsibleCalendar : UICalendar, View.OnClickListener {
             redraw()
             mIsWaitingForUpdate = true
             params?.onReload?.invoke()
+        }
+    }
+
+    private fun setDayOfWeekContentDescription(txtDayOfWeek: TextView, i: Int) {
+        when (i) {
+            0 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_sunday)
+            }
+            1 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_monday)
+            }
+            2 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_tuesday)
+            }
+            3 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_wednesday)
+            }
+            4 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_thursday)
+            }
+            5 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_friday)
+            }
+            6 -> {
+                txtDayOfWeek.contentDescription = context.getString(R.string.content_description_saturday)
+            }
         }
     }
 
