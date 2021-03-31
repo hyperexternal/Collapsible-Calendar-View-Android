@@ -98,6 +98,7 @@
                 android:layout_width="16dp"
                 android:layout_height="30dp"
                 android:contentDescription="@null"
+                android:focusable="false"
                 android:visibility="visible"
                 app:eiv_animationDuration="300"
                 app:eiv_color="#000"
