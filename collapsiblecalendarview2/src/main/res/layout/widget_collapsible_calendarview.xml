@@ -97,6 +97,7 @@
                 android:id="@+id/expandIcon"
                 android:layout_width="16dp"
                 android:layout_height="30dp"
+                android:contentDescription="@null"
                 android:visibility="visible"
                 app:eiv_animationDuration="300"
                 app:eiv_color="#000"
@@ -115,6 +116,7 @@
             android:contentDescription="@string/content_description_rl_options_button"
             android:gravity="center"
             android:minWidth="48dp"
+            android:minHeight="48dp"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -140,6 +142,7 @@
             android:contentDescription="@string/content_description_rl_today_button"
             android:gravity="center"
             android:minWidth="48dp"
+            android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/frame_filter_icon"
             app:layout_constraintTop_toTopOf="parent">
