@@ -97,6 +97,7 @@
                 android:id="@+id/expandIcon"
                 android:layout_width="16dp"
                 android:layout_height="30dp"
+                android:clickable="false"
                 android:contentDescription="@null"
                 android:focusable="false"
                 android:visibility="visible"
